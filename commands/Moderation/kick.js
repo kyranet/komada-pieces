@@ -1,7 +1,7 @@
 exports.run = async (client, msg, [member]) => {
   try {
     await member.kick();
-    msg.channel.send(`${member.username}#${member.discriminator} was kicked.`);
+    msg.channel.send(`${member.user.username}#${member.user.discriminator} was kicked.`);
   } catch (e) {
     msg.reply(`There was an error trying to kick: ${e}`);
   }
@@ -23,5 +23,5 @@ exports.help = {
   description: "Kicks a mentioned user. Currently does not require reason (no mod-log)",
   usage: "<member:member>",
   usageDelim: "",
-  type: "command",
+  type: "commands",
 };

@@ -4,6 +4,7 @@ exports.conf = {
 };
 
 exports.run = (client, msg) => {
+  if (!msg.guild) return;
   if (msg.author.id === client.user.id) return;
   const user = `${msg.author.username}#${msg.author.discriminator} (${msg.author.id})`;
   const channel = `#${msg.channel.name} (${msg.channel.id}) from ${msg.guild.name}`;
@@ -13,4 +14,5 @@ exports.run = (client, msg) => {
 
 exports.help = {};
 exports.help.name = "nomention";
+exports.help.type = "monitors";
 exports.help.description = "Did you get ghost-mentioned? This monitor is for you.";
